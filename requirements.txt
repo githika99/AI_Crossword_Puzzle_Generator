@@ -1,2 +1,3 @@
 nltk
 wikipedia-api
+openai == 0.28
