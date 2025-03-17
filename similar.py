@@ -90,7 +90,7 @@ def getWords(theme, maxWords, pos=None):
             relatedWords.add(word)
         # choose first n words in wikipedia extraction + theme to be used as themes for more data
         wikiKeywords = [x for x in wikiKeywords if x.islower() and x.isalpha() and x.isascii()]
-        print(f"words chosen for extraction: {wikiKeywords[:3]}")
+        print(f"words chosen for extraction: {wikiKeywords[:4]}")
         for term in wikiKeywords[:3]:
             termSynsets = wordnet.synsets(term, pos=pos)
             for synset in termSynsets:

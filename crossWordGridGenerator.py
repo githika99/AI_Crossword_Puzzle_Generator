@@ -357,6 +357,7 @@
 from fileConsole import fileConsole
 from hint_generator import get_crossword_hints
 import similar
+from difficulty_manager import change_difficulty
 from individual import Individual
 import copy
 import random
@@ -502,9 +503,11 @@ class CrossWordGridGenerator(object):
 if __name__ == "__main__":
     theme = input("Please choose a theme:\n")
     wordCount = int(input("How many words?\n"))
+    difficulty = int(input("Choose the difficulty of the puzzle (1-12):\n"))
 
     generator = CrossWordGridGenerator()
-    vocab = similar.getWords(theme, wordCount) 
+    genVocab = similar.getWords(theme, wordCount) 
+    vocab = change_difficulty(genVocab, difficulty)
     generator.setVocabularyList(vocab)
     generator.setCount(100)
 
@@ -518,7 +521,7 @@ if __name__ == "__main__":
 
     # Start the game using `playgame.py`
     print("\nStarting the crossword game...\n")
-    game = PlayableCrossword(crossword_grid, vocab)  # Pass crossword grid and vocabulary
+    game = PlayableCrossword(crossword_grid, vocab, theme, difficulty)  # Pass crossword grid and vocabulary
     #vocab2 = get_crossword_hints(vocab)
     #game = CrosswordGame(crossword_grid, vocab2)
     game.play()

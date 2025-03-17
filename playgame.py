@@ -2,14 +2,14 @@ import random
 from hint_generator import get_crossword_hints
 
 class PlayableCrossword:
-    def __init__(self, crossword_grid, vocabulary):
+    def __init__(self, crossword_grid, vocabulary, theme, difficulty):
         """
         Initializes the crossword game.
         :param crossword_grid: A list of lists representing the crossword grid.
         :param vocabulary: A list of words used in the crossword.
         """
         self.grid = crossword_grid
-        self.vocabulary = {word: hint for word, hint in get_crossword_hints(vocabulary).items()}  # Convert vocabulary to dict
+        self.vocabulary = {word: hint for word, hint in get_crossword_hints(theme, vocabulary, difficulty).items()}  # Convert vocabulary to dict
         self.user_answers = {}  
         self.word_positions = self.find_word_positions()
 
