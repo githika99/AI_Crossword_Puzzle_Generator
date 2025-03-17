@@ -8,7 +8,7 @@ def change_difficulty(words, diff):
         
         response = openai.ChatCompletion.create(
             model="gpt-4o-mini",
-            messages=[{"role": "system", "content": f"Take the role of a teacher teaching Grade {diff} students. Do not include anything other than the new word."},
+            messages=[{"role": "system", "content": f"Take the role of a teacher teaching Grade {diff} students. Do not include anything other than the new word. It should only be one word long with no capitol letters or punctuation"},
                       {"role": "user", "content": prompt}],
             max_tokens=30,
             temperature=0.7
