@@ -24,4 +24,3 @@ def get_crossword_hints(theme, words, difficulty):
 # for key, value in crossword_hints.items():
 #     print(f"{key}: {value}")
 #print(crossword_hints)
-
