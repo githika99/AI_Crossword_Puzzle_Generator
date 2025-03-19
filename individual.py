@@ -1,9 +1,6 @@
-# Not currently used in project
 import copy
 import multiprocessing.pool as mpool
 import random
-
-
 
 # the object of each word
 class Word():
